@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papandayan Tour - Jasa Tour Guide Gunung Papandayan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"> <!-- Untuk ikon -->
+    <link rel="icon" href="papandayan tour.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #2d5016; /* Hijau gelap untuk navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-size:17px ;
+        }
+        .bi-list {
+            display: none;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('kawah.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 24vh;
+            }
+            .hero h1 {
+                font-size: 15px;
+                padding-top: 0px;
+                text-align: left;
+            }
+            .hero p {
+                font-size: 10px;
+                text-align: justify;
+            }
+            .btn-custom1{
+                display: none;
+            }
+            .btn-custom2 {
+                padding-top: -10px;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            .bi-list{
+            display: inline-block;
+            font-size: 30px;
+            color: white;
+            }
+           
+            .bi-list:hover .ul-service{
+                display: inline-block;
+                transform: translate(-200px);
+                transition: 0.5s;
+                margin-top: 50px;
+              
+            }
+            .ul-service{
+            list-style: none;
+            display: inline;
+            position: absolute;
+            padding: 0;
+            
+            }
+            .li-service{
+                border-bottom: aqua;
+                margin-bottom: 1px;
+            }
+            .a-serv {
+            text-decoration: none;
+            color: black;
+            padding: 0px;
+            background-color: orangered;
+            display: block;
+            transition: 0.5s;
+            border-bottom: 5px black ;
+            }
+        }
+        .nav-link {
+            font-size: 17px;
+        }
+        .services {
+            padding: 60px 0;
+            background-color: #e9f7ef; /* Hijau muda */
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            height: 100%; /* Tinggi sama untuk semua kartu */
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .card-body p{
+            margin-bottom: 0;
+        }
+        h5 {
+            font-weight: 800;
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: #2d5016;
+            margin-bottom: 15px;
+        }
+        .service-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .service-card .card-body {
+            flex-grow: 1; /* Konten stretch untuk tinggi sama */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .ul-service{
+            list-style: none;
+            display: none;
+            position: absolute;
+            padding: 0;
+        }
+        .li-service{
+            border-bottom: aqua;
+            margin-bottom: 1px;
+        }
+        .layanan:hover .ul-service{
+            display: inline-block;
+        }
+        .a-serv {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            background-color: orangered;
+            display: block;
+            transition: 0.5s;
+            border-bottom: 5px black ;
+        }
+        .a-serv:hover{
+            transform: translate(15px);
+            border-radius: 10px;
+            color: white;
+            background-color: #2d5016 ;
+        }
+        .about {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #fff 0%, #e9f7ef 100%);
+        }
+        .about .quote {
+            font-style: italic;
+            color: #2d5016;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    
+        .contact {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: #2d5016;
+            margin-bottom: 10px;
+        
+        }
+        .btn-custom1 {
+            background-color: #ff6b35; /* Oranye untuk aksen */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            margin-top: 40px;
+        }
+        .btn-custom2 {
+            background-color: #ff6b35; /* Oranye untuk aksen */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+        }
+        .btn-custom1,.btn-custom2 :hover {
+            background-color: #e55a2b;
+        }
+        .contact-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+        .contact-card a {
+            text-decoration: none;
+            color: #333;
+        }
+        .contact-card a:hover{
+            color: green;
+        }
+        footer {
+            background-color: #2d5016;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Papandayan Tour</a>
+            <i class="bi bi-list">
+                <ul class="ul-service">
+                    <li class="li-service"><a class="a-serv" href="tourguide.html">Tour Guide</a></li>
+                    <li class="li-service"><a class="a-serv" href="tiket.html">Tiket Masuk</a></li>
+                    <li class="li-service"><a class="a-serv" href="penginapan.html">Sewa Penginapan</a></li>
+                    <li class="li-service"><a class="a-serv" href="#">Sewa Transportasi</a></li>
+                    <li class="li-service"><a class="a-serv" href="#">Paket Camping</a></li>
+                    <li class="li-service"><a class="a-serv" href="hiking.html">Paket Hiking</a></li>
+                </ul>
+            </i>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item layanan"><a class="nav-link" href="#services">Layanan</a>
+                    <ul class="ul-service">
+                        <li class="li-service"><a class="a-serv" href="tourguide.html">Tour Guide</a></li>
+                        <li class="li-service"><a class="a-serv" href="tiket.html">Tiket Masuk</a></li>
+                        <li class="li-service"><a class="a-serv" href="penginapan.html">Sewa Penginapan</a></li>
+                        <li class="li-service"><a class="a-serv" href="#">Sewa Transportasi</a></li>
+                        <li class="li-service"><a class="a-serv" href="#">Paket Camping</a></li>
+                        <li class="li-service"><a class="a-serv" href="hiking.html">Paket Hiking</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ulasan.html">Ulasan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Selamat Datang di Papandayan Tour</h1>
+            <p>Jelajahi keindahan Gunung Papandayan bersama kami. Pengalaman mendaki yang aman dan tak terlupakan.</p>
+            <a href="#services" class="btn btn-custom1 btn-lg">Lihat Layanan Kami</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Layanan Kami</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-car-front service-icon"></i>
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Tour Guide" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Tour Guide</h5>
+                            <p>Panduan ahli untuk mendaki Gunung Papandayan dengan rute aman dan informasi menarik.</p>
+                            <a href="tourguide.html" class="btn btn-custom2 mt-auto">Lihat Info Paket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-ticket-perforated service-icon"></i>
+                        <img src="kawah.jpg" alt="Tiket Masuk" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Tiket Masuk</h5>
+                            <p>Kami bantu urus tiket masuk ke area Gunung Papandayan dengan harga terbaik.</p>
+                            <a href="tiket.html" class="btn btn-custom2 mt-auto">Lihat Info Tiket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-house service-icon"></i>
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Sewa Penginapan" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Sewa Penginapan</h5>
+                            <p>Penginapan nyaman di sekitar gunung untuk istirahat sebelum atau setelah pendakian.</p>
+                            <a href="penginapan.html" class="btn btn-custom2 mt-auto">Lihat Info Paket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-car-front service-icon"></i>
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Sewa Transportasi" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Sewa Transportasi</h5>
+                            <p>Transportasi aman dari kota ke basecamp gunung, termasuk mobil dan jeep.</p>
+                            <a href="#contact" class="btn btn-custom2 mt-auto">Lihat Info Paket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-car-front service-icon"></i>
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Paket Camping" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Paket Camping 1 Malam</h5>
+                            <p>Paket lengkap camping dengan tenda, makanan, dan panduan di bawah bintang.</p>
+                            <a href="#contact" class="btn btn-custom2 mt-auto">Lihat Info Paket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="service-card">
+                        <i class="bi bi-car-front service-icon"></i>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Paket Hiking" class="service-img">
+                        <div class="card-body flex-grow-1">
+                            <h5>Paket Hiking</h5>
+                            <p>Paket hiking penuh dengan peralatan, makan, dan pengalaman mendaki yang seru.</p>
+                            <a href="hiking.html" class="btn btn-custom2 mt-auto">Lihat Info Paket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tentang Kami" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h2>Tentang Kami</h2>
+                    <p>Halo, saya adalah pemilik Papandayan Tour. Dengan pengalaman lebih dari 10 tahun sebagai tour guide di Gunung Papandayan, saya berkomitmen untuk memberikan pengalaman mendaki yang aman, edukatif, dan menyenangkan. Kami percaya bahwa alam adalah guru terbaik, dan kami ingin berbagi keindahannya dengan Anda.</p>
+                    <p>Kami fokus pada keberlanjutan dan keselamatan, menggunakan panduan lokal yang ahli dan peralatan terbaik.</p>
+                    <div class="quote">"Alam bukanlah sesuatu yang kita lihat, melainkan sesuatu yang kita rasakan." - Helen Keller</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Kontak Kami</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <a href="mailto:tfirdaus68@gmail.com">
+                        <i class="bi bi-envelope"></i>
+                        <h5>Email</h5>
+                    papandayantour.com</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tours%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." target="_blank">
+                        <i class="bi bi-whatsapp"></i>
+                        <h5>WhatsApp</h5>
+                    +62 877-3278-8405</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <a href="https://www.instagram.com/papandayan.tour?igsh=MWJ3ZzN1N2dwdzhnYw==" target="_blank">
+                        <i class="bi bi-instagram"></i>
+                        <h5>Instagram</h5>
+                        @papandayantour</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <a href="https://www.facebook.com/papandayantour" target="_blank">   
+                        <i class="bi bi-facebook"></i>
+                        <h5>Facebook</h5>
+                        Papandayan Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

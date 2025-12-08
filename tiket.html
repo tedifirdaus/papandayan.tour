@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Tiket Masuk - Papandayan Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"> <!-- Untuk ikon -->
+    <link rel="icon" href="papandayan tour.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #2d5016; /* Hijau gelap */
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        .tickets {
+            padding: 60px 0;
+            background-color: #e9f7ef; /* Hijau muda */
+        }
+        .ticket-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            height: 100%; /* Tinggi sama untuk semua kartu */
+            display: flex;
+            flex-direction: column;
+        }
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .ticket-header {
+            background: linear-gradient(90deg, #2d5016 0%, #ff6b35 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        .ticket-header i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .ticket-body {
+            padding: 20px;
+            flex-grow: 1; /* Konten stretch untuk tinggi sama */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin: 10px 0;
+        }
+        .btn-custom {
+            background-color: #ff6b35;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        .btn-custom:hover {
+            background-color: #e55a2b;
+        }
+        .contact-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+        .contact-card a {
+            text-decoration: none;
+            color: #333;
+        }
+        .contact-card a:hover {
+            color: #ff6b35;
+        }
+        footer {
+            background-color: #2d5016;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Papandayan Tour</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ulasan.html">Ulasan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-tik">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Layanan Tiket Masuk Gunung Papandayan</h1>
+            <p>Dapatkan tiket masuk dengan harga terbaik. Kami bantu urus semuanya agar Anda fokus pada petualangan.</p>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="tickets">
+        <div class="container">
+            <h2 class="text-center mb-5">Pilih Jenis Tiket Anda</h2>
+            <div class="row d-flex">
+                <!-- Weekday Hiking -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ticket-card h-100">
+                        <div class="ticket-header">
+                            <i class="bi bi-sun"></i>
+                            <h4>Weekday Hiking</h4>
+                        </div>
+                        <div class="ticket-body flex-grow-1">
+                            <p>Hiking di hari kerja dengan pemandangan tenang.</p>
+                            <div class="price">Rp 30.000 per orang</div>
+                            <p>Termasuk tiket masuk, air mineral, dan snack ringan.</p>
+                            <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tour%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." class="btn btn-custom">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekend Hiking -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ticket-card h-100">
+                        <div class="ticket-header">
+                            <i class="bi bi-sun"></i>
+                            <h4>Weekend Hiking</h4>
+                        </div>
+                        <div class="ticket-body flex-grow-1">
+                            <p>Hiking di akhir pekan dengan suasana lebih ramai.</p>
+                            <div class="price">Rp 40.000 per orang</div>
+                            <p>Termasuk tiket masuk, air mineral, snack ringan, dan foto dokumentasi.</p>
+                            <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tour%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." class="btn btn-custom">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekday Camping -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ticket-card h-100">
+                        <div class="ticket-header">
+                            <i class="bi bi-moon-stars"></i>
+                            <h4>Weekday Camping</h4>
+                        </div>
+                        <div class="ticket-body flex-grow-1">
+                            <p>Camping di hari kerja untuk pengalaman malam yang damai.</p>
+                            <div class="price">Rp 65.000 per orang</div>
+                            <p>Termasuk tenda, makan malam, api unggun, dan tiket masuk.</p>
+                            <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tour%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." class="btn btn-custom">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekend Camping -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ticket-card h-100">
+                        <div class="ticket-header">
+                            <i class="bi bi-moon-stars"></i>
+                            <h4>Weekend Camping</h4>
+                        </div>
+                        <div class="ticket-body flex-grow-1">
+                            <p>Camping di akhir pekan dengan kegiatan tambahan.</p>
+                            <div class="price">Rp 75.000 per orang</div>
+                            <p>Termasuk tenda, makan malam, api unggun, musik live, dan tiket masuk.</p>
+                            <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tour%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." class="btn btn-custom">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p><strong>Catatan:</strong> Harga dapat berubah tergantung musim. Minimum 1 orang. Hubungi kami untuk detail lebih lanjut.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-tik">
+        <div class="container">
+            <h2 class="text-center mb-5">Kontak Kami</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="bi bi-envelope"></i>
+                        <h5>Email</h5>
+                        <a href="mailto:info@papandayantour.com">info@papandayantour.com</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="bi bi-whatsapp"></i>
+                        <h5>WhatsApp</h5>
+                        <a href="https://wa.me/6287732788405?text=Halo%20Papandayan%20Tour%2C%20saya%20mau%20tanya%20tentang%20tiket%20masuk." target="_blank">+62 877-3278-8405</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="bi bi-instagram"></i>
+                        <h5>Instagram</h5>
+                        <a href="https://www.instagram.com/papandayantour" target="_blank">@papandayantour</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="bi bi-facebook"></i>
+                        <h5>Facebook</h5>
+                        <a href="https://www.facebook.com/papandayantour" target="_blank">Papandayan Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Papandayan Tour. Semua hak dilindungi. Dibuat dengan cinta untuk alam.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
